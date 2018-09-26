@@ -1,0 +1,158 @@
+/*!
+ * Copyright (c) 2018, Hortonworks Inc.  All rights reserved.
+ *
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License"); you may not use
+ * this file except in compliance with the License.  You may obtain a copy of the License at
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is
+ * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied.  See the License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+.menuItemText {
+    margin-left: 20px;
+    flex: 1;
+}
+
+.level0{
+    font-size: 16px;
+}
+
+.level1{
+    font-size: 13px;
+    width: auto;
+}
+.level1 li a{
+    height: 33px;
+}
+.level1 li a span {
+    margin-top: 7px !important
+}
+
+.level2{
+    width: auto
+}
+
+.level2 li a{
+    height: 20px;
+}
+.level2 li a span {
+    margin-top: 0px !important
+}
+
+.level2.subMenu {
+    border-left: none;
+}
+
+.subMenu{
+    width: auto
+}
+
+.subMenu {
+   list-style: none;
+   overflow: hidden;
+}
+
+.menuItem a {
+	display: flex;
+    white-space: nowrap;
+    color: inherit;
+    height: 46px;
+    padding: 0 14px;
+    text-decoration: none;
+    -webkit-transition: padding .8s ease;
+    -moz-transition: padding .8s ease;
+    -o-transition: padding .8s ease;
+    transition: padding .8s ease;
+	-webkit-font-smoothing: antialiased;
+}
+
+.menuItem a .menuText {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.menuCollapsed.menuItem > ul{
+    display: none;
+}
+
+.menuCollapsed.menuItem a {
+    width: 50px;
+}
+
+.menuItem a:hover  {
+    color: #fff;
+    background: #404351;
+}
+
+.menuItem {
+    cursor: pointer;
+}
+
+.menuIcon {
+    font-size: 16px;
+    margin-top: 4px;
+}
+
+.menuItem.active > a,
+.menuItem.active:hover > a {
+	color: #3FAE2A;
+	background: #2d2f3c;
+}
+
+.activeIcon{
+    left: 0;
+    margin-top: 4px;
+    position: absolute;
+	display: inline-block;
+	color: #3FAE2A;
+}
+.menuCollapsed > .subMenu > ul {
+    display: none;
+    position: absolute;
+    left: 50px;
+    margin-top: -55px;
+    background: #323544;
+    color: #b8bec4;
+    width: 200px;
+    border-left: none;
+    font-size: 16px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.menuItem > ul {
+    position: static;
+    width: auto;
+}
+.menuCollapsed.subMenu > ul {
+    position: absolute;
+    overflow: visible;
+    display: none;
+}
+
+.subMenuOpen > ul {
+    display: block;
+    overflow: visible;
+    margin-top: 0;
+    border-left: 1px solid #666;
+}
+
+.subMenuExpander {
+    right: 15px;
+    height: 16px;
+    width: 16px;
+    margin-top: 4px;
+    position: absolute;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+
+.menuCollapsed .subMenuExpander {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 0.33s, opacity 0.33s linear;
+}
