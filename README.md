@@ -1,4 +1,4 @@
-# Hortonworks DataPlane Service (DPS) Apps
+# Hortonworks DataPlane Service (DPS) Navigation
 
 **Table of Contents**
 
