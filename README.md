@@ -22,5 +22,5 @@ If you wish to make contributions to this project, refer to [CONTRIBUTING.md](ht
 
 ## License
 
-The DPS Platform and it's associated DPS applications are made available under the terms
+The DPS navigation module sources is made available under the terms
 of the [Apache Software License Version 2](COPYING).
