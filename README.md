@@ -23,4 +23,4 @@ If you wish to make contributions to this project, refer to [CONTRIBUTING.md](ht
 ## License
 
 The DPS Platform and it's associated DPS applications are made available under the terms
-of the [GNU Affero General Public License (GNU AGPLv3)](COPYING).
+of the [Apache Software License Version 2](COPYING).
