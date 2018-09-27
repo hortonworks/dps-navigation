@@ -3,6 +3,7 @@
 **Table of Contents**
 
 - [What is DPS?](#what-is-dps)
+- [What is DPS Navigation?](#what-is-dps-navigation)
 - [Contributing](#contributing)
 - [License](#license)
  
@@ -15,6 +16,12 @@ in the package can be used by importing it into your project. Refer to [DPS Plat
 information on that repository.
 
 Learn more about DPS and the DPS solutions here: [https://hortonworks.com/products/data-services/](https://hortonworks.com/products/data-services/)
+
+## What is DPS Navigation?
+
+DPS Navigation is an open source Node module that allows different projects to have independent
+user interfaces, but preserve the navigational elements common to DataPlane - so all projects
+would provide a consistent navigational experience to the end user.
 
 ## Contributing
 
