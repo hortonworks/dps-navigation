@@ -55,6 +55,9 @@ export default class App extends Component {
     return menu.map(menuItem => {
       let currentDepth = menuItem.subMenu && menuItem.subMenu.length? depth+1: depth
       this.markMenusToOpen(menuItem, menuItem.subMenu)
+      console.log(menuItem)
+      console.log(window.location.href.endsWith(menuItem.link))
+      console.log(this.state.activeMenuItem.id === menuItem.id)
       return(
         <MenuItemWidget onClick={this.setActive} menuItem={menuItem} depth={depth+1}
         subMenuOpen={menuItem.subMenuOpen}

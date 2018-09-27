@@ -78,7 +78,15 @@ let menu = [
         "position": 0,
         "icon": "fa fa-cogs",
         "subMenu": []
-    }
+    },
+    {
+        "id": 7,
+        "name":"doc",
+        "displayName":"Documentation",
+        "link":"https://docs.hortonworks.com/HDPDocuments/DP/DP-1.2.0/installation/content/dps_installation_overview_dps_services_engines_and_agents.html",
+        "external":true,
+        "icon":"fa fa-book"
+     }
 ]
 
 export default menu
