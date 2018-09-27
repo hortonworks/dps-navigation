@@ -3,7 +3,7 @@
 **Table of Contents**
 
 - [What is DPS?](#what-is-dps)
-- [What is DPS Navigation?] (#what-is-dps-navigation)
+- [What is DPS Navigation?](#what-is-dps-navigation)
 - [Contributing](#contributing)
 - [License](#license)
  
