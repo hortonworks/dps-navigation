@@ -43,10 +43,11 @@ export default class App extends Component {
   }
 
   setActive(menuItem) {
+    let link = `${menuItem.prefix}${menuItem}`
     if(this.props.navigate && typeof this.props.navigate === 'function') {
-      this.props.navigate(menuItem.link, this.props.urlPrefix !=undefined && !menuItem.url.startsWith(this.props.urlPrefix));
+      this.props.navigate(link, this.props.urlPrefix !== menuItem.prefix);
     } else {
-      window.location.href = menuItem.link;
+      window.location.href = link;
     }
     this.setState({activeMenuItem: menuItem});
   }
