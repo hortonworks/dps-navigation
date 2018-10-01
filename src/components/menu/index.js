@@ -50,7 +50,6 @@ export default class App extends Component {
     } else {
       window.location.href = link;
     }
-    console.log('Active menu item', menuItem);
     this.setState({activeMenuItem: menuItem});
   }
 
@@ -58,8 +57,6 @@ export default class App extends Component {
     return menu.map(menuItem => {
       let currentDepth = menuItem.subMenu && menuItem.subMenu.length? depth+1 : depth;
       this.markMenusToOpen(menuItem, menuItem.subMenu);
-      console.log('is active menu id', this.state.activeMenuItem.id === menuItem.id)
-      console.log('is href', window.location.href.endsWith(menuItem.link))
       return(
         <MenuItemWidget onClick={this.setActive} menuItem={menuItem} depth={depth+1}
         subMenuOpen={menuItem.subMenuOpen}

@@ -53,7 +53,11 @@ export default class MenuItem extends Component {
                 <span className={style.menuItemText}>
                     {this.props.menuItem.displayName}
                     {this.props.menuItem.subMenu && this.props.menuItem.subMenu.length ?
-                    <span onClick={(e)=>this.toggleSubMenu(e)}><i className={`${style.subMenuExpander} ${fontAwesome.fa} ${fontAwesome['fa-angle-down']}`}></i></span>:''}
+                    <span onClick={(e)=>this.toggleSubMenu(e)}>
+                    {this.state.subMenuOpen?
+                        <i className={`${style.subMenuExpander} ${fontAwesome.fa} ${fontAwesome['fa-angle-up']}`}></i>:
+                        <i className={`${style.subMenuExpander} ${fontAwesome.fa} ${fontAwesome['fa-angle-down']}`}></i>}
+                    </span>:''}
                 </span>
             </span>
         </a>)
