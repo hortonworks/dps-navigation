@@ -46,6 +46,7 @@ export default class App extends Component {
     let link = `${menuItem.prefix}${menuItem.link}`
     if(this.props.navigate && typeof this.props.navigate === 'function') {
       this.props.navigate(link, this.props.urlPrefix !== menuItem.prefix);
+      window.history.pushState({}, "", link);
     } else {
       window.location.href = link;
     }
