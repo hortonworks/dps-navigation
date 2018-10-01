@@ -11,15 +11,10 @@
  * under the License.
  */
 
- * {
-     box-sizing: border-box
- }
-
-body {
+ .navContainer, .navContainer > * {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    color: #666;
-    background: #eee;
+    box-sizing: border-box
 }
 
 .navContainer {
