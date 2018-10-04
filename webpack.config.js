@@ -18,43 +18,24 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
   filename: "./index.html"
 });
-module.exports = {
-  output: {
-    filename: 'main.js',
-    library: 'DPSNav',
-    libraryTarget: 'umd'
-  },
+
+const config = {
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader?presets[]=preact"
-        }
-      },{
-        test: /\.scss$/,
-        use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              importLoaders: 1,
-              localIdentName: "[name]_[local]_[hash:base64]",
-              sourceMap: true,
-              minimize: true
-            }
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", '@babel/preset-react']
           }
-        ]
-      },{
-        test: /\.css$/,
+        }
+      },
+      {
+        test: /\.(css|scss)$/,
         use: [
-          {
-            loader: "style-loader"
-          },
+          { loader: "style-loader" },
           {
             loader: "css-loader",
             options: {
@@ -67,9 +48,36 @@ module.exports = {
           }
         ]
       },
-      {test: /\.(png|jpg)$/, use: 'url-loader'},
-      {test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, use: 'url-loader'}
+      { test: /\.(png|jpg)$/, use: 'url-loader' },
+      { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, use: 'url-loader' }
     ]
-  },
-  plugins: [htmlWebpackPlugin, new CopyWebpackPlugin([{ from: 'src/assets/images', to: 'assets/images' }])]
-};
+  }
+}
+module.exports = [
+  Object.assign({}, config, {
+    output: {
+      filename: 'main.js',
+      library: 'DPSNav',
+      libraryTarget: 'umd'
+    },
+    plugins: [htmlWebpackPlugin, new CopyWebpackPlugin([{ from: 'src/assets/images', to: 'assets/images' }])],
+    resolve: {
+      alias: {
+        'react': 'preact-compat',
+        'react-dom': 'preact-compat'
+      }
+    }
+  }),
+  Object.assign({}, config, {
+    entry: './src/components/menu/index.js',
+    output: {
+      filename: 'component.js',
+      library: 'Navigation',
+      libraryTarget: 'umd'
+    },
+    externals: {
+      'react': 'React',
+      'react-dom': 'ReactDOM'
+    }
+  })
+];

@@ -11,9 +11,8 @@
  * under the License.
  */
 
-import { h, Component, Fragment } from "preact";
+import React, { Component } from "react";
 import style from "./style.scss";
-import fontAwesome from "font-awesome/css/font-awesome.css"
 import classNames from "classnames";
 import mockData from "./../../mock"
 import MenuItemWidget from "../menu-item";
@@ -113,8 +112,8 @@ export default class App extends Component {
         <div onClick={()=>this.toggleSideNav()}  className={style.expander}>
           {
             this.state.collapsed ?
-            <i className={`${fontAwesome.fa} ${fontAwesome['fa-angle-double-right']}`}></i> :
-            <i className={`${fontAwesome.fa} ${fontAwesome['fa-angle-double-left']}`}></i>
+            <i className="fa fa-angle-double-right"></i> :
+            <i className="fa fa-angle-double-left"></i>
           }
         </div>
       </div>
