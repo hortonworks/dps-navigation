@@ -18,7 +18,6 @@ let menu = [
         "displayName": "Clusters",
         "link": "clusters",
         "parentId": 1,
-        "position": 0,
         "icon": "fa fa-server",
         "subMenu": [
             {
@@ -27,7 +26,6 @@ let menu = [
                 "displayName": "Templates",
                 "link": "templates",
                 "parentId": 1,
-                "position": 1,
                 "subMenu": [
                     {
                         "id": 7,
@@ -35,7 +33,6 @@ let menu = [
                         "displayName": "Test",
                         "link": "test",
                         "parentId": 4,
-                        "position": 3,
                         "subMenu": []
                     }
                 ]
@@ -46,7 +43,6 @@ let menu = [
                 "displayName": "Blue Prints",
                 "link": "blueprints",
                 "parentId": 2,
-                "position": 1,
                 "subMenu": []
             },
             {
@@ -55,7 +51,6 @@ let menu = [
                 "displayName": "Recipes",
                 "link": "recipes",
                 "parentId": 3,
-                "position": 1,
                 "subMenu": []
             },
             {
@@ -64,7 +59,6 @@ let menu = [
                 "displayName": "Subscription",
                 "link": "subscription",
                 "parentId": 4,
-                "position": 1,
                 "subMenu": []
             }
         ]
@@ -75,10 +69,17 @@ let menu = [
         "displayName": "Cloud Manager",
         "link": "cloud-manager",
         "parentId": 1,
-        "position": 0,
         "icon": "fa fa-cogs",
         "subMenu": []
-    }
+    },
+    {
+        "id": 8,
+        "name":"doc",
+        "displayName":"Documentation",
+        "link":"https://docs.hortonworks.com/HDPDocuments/DP/DP-1.2.0/installation/content/dps_installation_overview_dps_services_engines_and_agents.html",
+        "external":true,
+        "icon":"fa fa-book"
+     }
 ]
 
 export default menu

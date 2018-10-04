@@ -11,14 +11,11 @@
  * under the License.
  */
 
-body {
+ .navContainer, .navContainer > * {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    color: #666;
-    background: #eee;
+    box-sizing: border-box
 }
-
-/* Nav container styles */
 
 .navContainer {
 	position: fixed;
@@ -67,7 +64,7 @@ body {
 }
 
 .dpLogo {
-	height: 33px;
+	height: 60px;
 	white-space: nowrap;
 	overflow: hidden;
 	padding: 12px 10px 15px 20px;
