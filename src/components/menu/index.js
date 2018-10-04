@@ -30,6 +30,10 @@ export default class App extends Component {
     this.setActive = this.setActive.bind(this)
   }
 
+  componentDidMount() {
+    this.global = window;
+  }
+
   toggleSideNav() {
     this.setState({
       collapsed: !this.state.collapsed
@@ -45,9 +49,9 @@ export default class App extends Component {
     let link = `${menuItem.prefix}${menuItem.link}`
     if(this.props.navigate && typeof this.props.navigate === 'function') {
       this.props.navigate(link, this.props.urlPrefix !== menuItem.prefix);
-      window.history.pushState({}, "", link);
+      this.global && this.global.history.pushState({}, "", link);
     } else {
-      window.location.href = link;
+      this.global && this.global.location.replace(location);
     }
     this.setState({activeMenuItem: menuItem});
   }
@@ -59,7 +63,7 @@ export default class App extends Component {
       return(
         <MenuItemWidget onClick={this.setActive} menuItem={menuItem} depth={depth+1}
         subMenuOpen={menuItem.subMenuOpen}
-        isActive={this.state.activeMenuItem.id === menuItem.id || window.location.href.endsWith(menuItem.link)}
+        isActive={this.state.activeMenuItem.id === menuItem.id || (this.global && this.global.location.href.endsWith(menuItem.link))}
         subMenu={menuItem.subMenu && menuItem.subMenu.length ? this.getMenuItems(menuItem.subMenu, currentDepth):''}
         collapsed={this.state.collapsed}/>
       )
@@ -72,7 +76,7 @@ export default class App extends Component {
     }else {
       subMenu.forEach(subMenuItem => {
         this.markMenusToOpen(subMenuItem, subMenuItem.subMenu);
-        if(window.location.href.endsWith(subMenuItem.link)){
+        if(this.global && this.global.location.href.endsWith(subMenuItem.link)){
           menuItem.subMenuOpen = true;
         }
       });
@@ -84,7 +88,6 @@ export default class App extends Component {
     promise.then(menuJson => {
       this.setState({menu: menuJson})
     }).catch(error => {
-      console.error(error);
       if(typeof this.props.onError === 'function'){
         this.props.onError();
       }
