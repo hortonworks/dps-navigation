@@ -3,5 +3,3 @@
 node_modules/
 typings/
 dps-apps.iml
-dist/.DS_Store
-dist/assets/.DS_Store
