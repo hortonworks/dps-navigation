@@ -1,3 +1,5 @@
+/** @jsx h */
+
 /*
  * Copyright (c) 2018, Hortonworks Inc.  All rights reserved.
  *
@@ -12,8 +14,8 @@
  */
 
 import { h, render } from "preact";
-import habitat from "preact-habitat";
 import DPSNavWidget from "./components/menu";
+import '!style-loader!css-loader!font-awesome/css/font-awesome.css';
 
 export function init(options) {
   render(<DPSNavWidget collapseOnInit={options.collapseOnInit} standalone={options.standalone}

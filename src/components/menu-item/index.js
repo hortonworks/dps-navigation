@@ -11,11 +11,9 @@
  * under the License.
  */
 
-import { h, Component } from "preact";
+import React, { Component } from "react";
 import style from "./style.scss";
-import fontAwesome from "font-awesome/css/font-awesome.css"
 import classNames from "classnames";
-import mockData from "./../../mock"
 
 export default class MenuItem extends Component {
 
@@ -48,15 +46,15 @@ export default class MenuItem extends Component {
         }
         return ( <a {...aProps}>
             <span className={`${style.menuText}`}>
-                {this.props.isActive?<i className={`${style.activeIcon} ${fontAwesome.fa} ${fontAwesome['fa-caret-right']}`}></i>:''}
-                <i className={`${style.menuIcon} ${fontAwesome.fa} ${menuIcon}`}></i>
+                {this.props.isActive?<i className={`${style.activeIcon} fa fa-caret-right`}></i>:''}
+                <i className={`${style.menuIcon} fa ${menuIcon}`}></i>
                 <span className={style.menuItemText}>
                     {this.props.menuItem.displayName}
                     {this.props.menuItem.subMenu && this.props.menuItem.subMenu.length ?
                     <span onClick={(e)=>this.toggleSubMenu(e)}>
                     {this.state.subMenuOpen?
-                        <i className={`${style.subMenuExpander} ${fontAwesome.fa} ${fontAwesome['fa-angle-up']}`}></i>:
-                        <i className={`${style.subMenuExpander} ${fontAwesome.fa} ${fontAwesome['fa-angle-down']}`}></i>}
+                        <i className={`${style.subMenuExpander} fa fa-angle-up`}></i>:
+                        <i className={`${style.subMenuExpander} fa fa-angle-down`}></i>}
                     </span>:''}
                 </span>
             </span>
@@ -66,10 +64,7 @@ export default class MenuItem extends Component {
     render() {
         let levelClass = style[`level${this.props.depth}`]
         let menuIconClasses = this.props.menuItem.icon? this.props.menuItem.icon.split(" "):[];
-        let menuIcon = ''
-        menuIconClasses.forEach(element => {
-            menuIcon += (` ${fontAwesome[element]}`)
-        });
+        let menuIcon = menuIconClasses.join(' ');
         return(
             this.props.menuItem.external?
             <li className={classNames({[style.active]:this.props.isActive}, {[style.menuItem]:true},
