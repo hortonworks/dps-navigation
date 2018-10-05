@@ -70,6 +70,7 @@ module.exports = [
   }),
   Object.assign({}, config, {
     entry: './src/components/menu/index.js',
+    plugins: [htmlWebpackPlugin, new CopyWebpackPlugin([{ from: 'src/assets/images', to: 'assets/images' }])],    
     output: {
       filename: 'component.js',
       library: 'Navigation',
