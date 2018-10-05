@@ -101,7 +101,7 @@ export default class App extends Component {
       <div className={classNames({[style.navContainer]: true, [style.collapsed]: this.state.collapsed})}>
         <div className={style.dpLogo}>
           <a href="">
-            <img className={style.logoImg} src={`/assets/images/dp-logo.png`}></img>
+            <img className={style.logoImg} src={`/static/images/dp-logo.png`}></img>
             <div>Hortonworks</div>
             <div>DataPlane</div>
           </a>
