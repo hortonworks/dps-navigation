@@ -80,7 +80,7 @@ export default class App extends Component {
   }
 
   componentWillMount() {
-    let promise = this.props.standalone ? this.getMenu() : fetch('/api/menu').then(result => result.json())
+    let promise = this.props.standalone ? this.getMenu() : fetch('/core/api/menu').then(result => result.json())
     promise.then(menuJson => {
       this.setState({menu: menuJson})
     }).catch(error => {
@@ -101,7 +101,7 @@ export default class App extends Component {
       <div className={classNames({[style.navContainer]: true, [style.collapsed]: this.state.collapsed})}>
         <div className={style.dpLogo}>
           <a href="">
-            <img className={style.logoImg} src={`/static/images/dp-logo.png`}></img>
+            <img className={style.logoImg} src={`/core/static/images/dp-logo.png`}></img>
             <div>Hortonworks</div>
             <div>DataPlane</div>
           </a>
