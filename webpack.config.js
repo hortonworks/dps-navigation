@@ -60,7 +60,7 @@ module.exports = [
       library: 'DPSNav',
       libraryTarget: 'umd'
     },
-    plugins: [htmlWebpackPlugin, new CopyWebpackPlugin([{ from: 'src/assets/images', to: 'assets/images' }])],
+    plugins: [htmlWebpackPlugin, new CopyWebpackPlugin([{ from: 'src/assets/images', to: 'static/images' }])],
     resolve: {
       alias: {
         'react': 'preact-compat',
