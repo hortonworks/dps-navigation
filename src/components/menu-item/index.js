@@ -38,7 +38,7 @@ export default class MenuItem extends Component {
         this.props.onClick(this.props.menuItem)
     }
 
-    getLink(menuIcon){
+    getLink(){
         let aProps = {}
         if(this.props.menuItem.external){
             aProps.href = this.props.menuItem.link
@@ -47,7 +47,7 @@ export default class MenuItem extends Component {
         return ( <a {...aProps}>
             <span className={`${style.menuText}`}>
                 {this.props.isActive?<i className={`${style.activeIcon} fa fa-caret-right`}></i>:''}
-                <i className={`${style.menuIcon} fa ${menuIcon}`}></i>
+                <i className={`${style.menuIcon} ${this.props.menuItem.icon? this.props.menuItem.icon:''}`}></i>
                 <span className={style.menuItemText}>
                     {this.props.menuItem.displayName}
                     {this.props.menuItem.subMenu && this.props.menuItem.subMenu.length ?
@@ -63,18 +63,17 @@ export default class MenuItem extends Component {
 
     render() {
         let levelClass = style[`level${this.props.depth}`]
-        let menuIconClasses = this.props.menuItem.icon? this.props.menuItem.icon.split(" "):[];
-        let menuIcon = menuIconClasses.join(' ');
+        let menuIcon = this.props.menuItem.icon;
         return(
             this.props.menuItem.external?
             <li className={classNames({[style.active]:this.props.isActive}, {[style.menuItem]:true},
                 {[style.subMenuOpen]:this.state.subMenuOpen}, {[style.menuCollapsed]:this.props.collapsed})}>
-                {this.getLink(menuIcon)}
+                {this.getLink()}
                 { this.state.subMenuOpen && this.props.menuItem.subMenu && this.props.menuItem.subMenu.length > 0? <ul className={classNames({[style.subMenu]:true},{[`${levelClass}`]:true},)}> {this.props.subMenu} </ul>: '' }
             </li> :
             <li onClick={(e) =>this.handleClick(e)} className={classNames({[style.active]:this.props.isActive}, {[style.menuItem]:true},
                 {[style.subMenuOpen]:this.state.subMenuOpen}, {[style.menuCollapsed]:this.props.collapsed})}>
-                {this.getLink(menuIcon)}
+                {this.getLink()}
                 { this.state.subMenuOpen && this.props.menuItem.subMenu && this.props.menuItem.subMenu.length > 0? <ul className={classNames({[style.subMenu]:true},{[`${levelClass}`]:true},)}> {this.props.subMenu} </ul>: '' }
             </li>
         )
