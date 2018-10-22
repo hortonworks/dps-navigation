@@ -28,8 +28,11 @@ let menu = [
     {
         "id": "27f3d642-a24d-4428-8a0a-4f2a03514445",
         "name": "cluster-templates",
-        "link": "cluster-templates",
+        "link": "/cluster-templates",
         "displayName": "Cluster Templates",
+        "external":null,
+        "prefix":"/cloudbreak",
+        "parentId":null,
         "icon": "fas fa-project-diagram"
       },
     {

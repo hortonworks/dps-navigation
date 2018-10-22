@@ -42,12 +42,19 @@ export default class App extends Component {
   }
 
   setActive(menuItem) {
-    let link = `${menuItem.prefix}${menuItem.link}`
-    if(this.props.navigate && typeof this.props.navigate === 'function') {
-      this.props.navigate(link, this.props.urlPrefix !== menuItem.prefix);
-      window.history.pushState({}, "", link);
-    } else {
-      window.location.href = link;
+    if(this.props.urlPrefix !== menuItem.prefix){
+      let externalLink = menuItem.prefix && menuItem.prefix.startsWith('/')?`${menuItem.prefix}${menuItem.link}`:`/${menuItem.prefix}${menuItem.link}`;      
+      if(this.props.navigateExternal && typeof this.props.navigateExternal === 'function'){
+        this.props.navigateExternal(externalLink);
+        window.history.pushState({}, "", menuItem.link);        
+      }else{
+        window.location.href = externalLink;
+      }      
+    }else if(this.props.navigate && typeof this.props.navigate === 'function'){
+      this.props.navigate(menuItem.link);
+      window.history.pushState({}, "", menuItem.link);
+    }else{
+      window.location.href = menuItem.prefix.startsWith('/')?`${menuItem.prefix}${menuItem.link}`:`/${menuItem.prefix}${menuItem.link}`;
     }
     this.setState({activeMenuItem: menuItem});
   }
