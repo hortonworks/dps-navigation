@@ -15,7 +15,7 @@
 
 import { h, render } from "preact";
 import DPSNavWidget from "./components/menu";
-import '!style-loader!css-loader!@fortawesome/fontawesome-free/css/all.min.css';
+//import '!style-loader!css-loader!@fortawesome/fontawesome-free/css/all.min.css';
 
 export function init(options) {
   render(<DPSNavWidget collapseOnInit={options.collapseOnInit} standalone={options.standalone}
