@@ -14,6 +14,9 @@
 import React, { Component } from "react";
 import style from "./style.scss";
 import classNames from "classnames";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as Icons from '@fortawesome/free-solid-svg-icons'
+
 
 export default class MenuItem extends Component {
 
@@ -47,7 +50,7 @@ export default class MenuItem extends Component {
         return ( <a {...aProps}>
             <span className={`${style.menuText}`}>
                 {this.props.isActive?<i className={`${style.activeIcon} fa fa-caret-right`}></i>:''}
-                <i className={`${style.menuIcon} ${this.props.menuItem.icon? this.props.menuItem.icon:''}`}></i>
+                <FontAwesomeIcon icon={Icons[`${this.props.menuItem.icon}`]} />
                 <span className={style.menuItemText}>
                     {this.props.menuItem.displayName}
                     {this.props.menuItem.subMenu && this.props.menuItem.subMenu.length ?
