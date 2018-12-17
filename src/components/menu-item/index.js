@@ -16,6 +16,7 @@ import style from "./style.scss";
 import classNames from "classnames";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as Icons from '@fortawesome/free-solid-svg-icons'
+import { faAngleUp, faAngleDown, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
 
 export default class MenuItem extends Component {
@@ -53,15 +54,15 @@ export default class MenuItem extends Component {
         }
         return ( <a {...aProps}>
             <span className={`${style.menuText}`}>
-                {this.props.isActive?<i className={`${style.activeIcon} fa fa-caret-right`}></i>:''}
+                {this.props.isActive?<span className={style.activeIcon}><FontAwesomeIcon icon={faCaretRight}/></span>:''}
                 <span className={style.menuIcon}><FontAwesomeIcon icon={Icons[`${this.props.menuItem.icon}`]}/></span>
                 <span className={style.menuItemText}>
                     {this.props.menuItem.displayName}
                     {this.props.menuItem.subMenu && this.props.menuItem.subMenu.length ?
                     <span onClick={(e)=>this.toggleSubMenu(e)}>
                     {this.state.subMenuOpen?
-                        <i className={`${style.subMenuExpander} fa fa-angle-up`}></i>:
-                        <i className={`${style.subMenuExpander} fa fa-angle-down`}></i>}
+                        <span className={style.subMenuExpander}><FontAwesomeIcon icon={faAngleUp}/></span>:
+                        <span className={style.subMenuExpander}><FontAwesomeIcon icon={faAngleDown}/></span>}
                     </span>:''}
                 </span>
             </span>
