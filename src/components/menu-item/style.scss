@@ -97,6 +97,11 @@
     margin-top: 4px;
 }
 
+.menuIcon svg {
+    width: 18px !important;
+    max-width: 18px !important;
+}
+
 .menuItem.active > a,
 .menuItem.active:hover > a {
 	color: #3FAE2A;

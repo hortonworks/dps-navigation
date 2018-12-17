@@ -52,13 +52,21 @@ let menu = [
        "id":"912755aa-93e5-4bcd-9b33-34302edb531d",
        "name":"applications",
        "displayName":"Applications",
-       "link":"/services",
        "external":null,
        "prefix":"/core",
        "parentId":null,
        "icon":"faThLarge",
        "subMenu":[
- 
+            {
+                "id":"7df4091a-da43-4816-a10e-e3deeed02395",
+                "name":"das",
+                "displayName":"DAS",
+                "link":"/clusters",
+                "external":null,
+                "prefix":"/das",
+                "parentId":"912755aa-93e5-4bcd-9b33-34302edb531d",
+                "icon":"faKey"
+            }
        ]
     },
     {
