@@ -13,6 +13,10 @@
 
 .menuItemText {
     margin-left: 20px;
+    display: inline-block;
+    width: 140px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
     flex: 1;
 }
 
@@ -26,9 +30,14 @@
 }
 .level1 li a{
     height: 33px;
+    padding: 0 7px !important;
 }
 .level1 li a span {
     margin-top: 7px !important
+}
+
+.level1 > .menuItemText{
+    margin-left: 10px !important;
 }
 
 .level2{
@@ -95,6 +104,10 @@
 .menuIcon {
     font-size: 16px;
     margin-top: 4px;
+}
+
+.menuIcon svg {
+    width: 18px !important;
 }
 
 .menuItem.active > a,

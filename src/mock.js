@@ -20,7 +20,7 @@ let menu = [
        "external":null,
        "prefix":"/cloudbreak",
        "parentId":null,
-       "icon":"fas fa-server",
+       "icon":"faServer",
        "subMenu":[
  
        ]
@@ -33,7 +33,7 @@ let menu = [
         "external":null,
         "prefix":"/cloudbreak",
         "parentId":null,
-        "icon": "fas fa-project-diagram"
+        "icon": "faProjectDiagram"
       },
     {
        "id":"4b4cf6cd-2cd6-4c27-9cdc-819d77de5538",
@@ -43,7 +43,7 @@ let menu = [
        "external":null,
        "prefix":"/caas",
        "parentId":null,
-       "icon":"fa fa-users",
+       "icon":"faUsers",
        "subMenu":[
  
        ]
@@ -52,13 +52,21 @@ let menu = [
        "id":"912755aa-93e5-4bcd-9b33-34302edb531d",
        "name":"applications",
        "displayName":"Applications",
-       "link":"/services",
        "external":null,
        "prefix":"/core",
        "parentId":null,
-       "icon":"fa fa-th-large",
+       "icon":"faThLarge",
        "subMenu":[
- 
+            {
+                "id":"7df4091a-da43-4816-a10e-e3deeed02395",
+                "name":"das",
+                "displayName":"DAS",
+                "link":"/clusters",
+                "external":null,
+                "prefix":"/das",
+                "parentId":"912755aa-93e5-4bcd-9b33-34302edb531d",
+                "icon":"faKey"
+            }
        ]
     },
     {
@@ -69,7 +77,7 @@ let menu = [
        "external":null,
        "prefix":"/cloudbreak",
        "parentId":null,
-       "icon":"fa fa-key",
+       "icon":"faKey",
        "subMenu":[
  
        ]
@@ -82,7 +90,7 @@ let menu = [
        "external":null,
        "prefix":"/cloudbreak",
        "parentId":null,
-       "icon":"fa fa-th",
+       "icon":"faTh",
        "subMenu":[
  
        ]
@@ -95,7 +103,7 @@ let menu = [
        "external":null,
        "prefix":"/cloudbreak",
        "parentId":null,
-       "icon":"fa fa-puzzle-piece",
+       "icon":"faPuzzlePiece",
        "subMenu":[
              {
                 "id":"0e2014e9-d4fd-4c39-9ba9-25e6d8c969ca",
@@ -105,7 +113,7 @@ let menu = [
                 "external":null,
                 "prefix":"/cloudbreak",
                 "parentId":"538ec2d5-0d4d-48bd-9dcc-1eee1d671992",
-                "icon":"fa fa-file-code-o",
+                "icon":"faFileCodeO",
                 "subMenu":[
  
                 ]
@@ -118,7 +126,7 @@ let menu = [
                 "external":null,
                 "prefix":"/cloudbreak",
                 "parentId":"538ec2d5-0d4d-48bd-9dcc-1eee1d671992",
-                "icon":"fa fa-archive",
+                "icon":"faArchive",
                 "subMenu":[
  
                 ]
@@ -133,7 +141,7 @@ let menu = [
        "external":null,
        "prefix":"/cloudbreak",
        "parentId":null,
-       "icon":"fa fa-share-alt-square",
+       "icon":"faShareAltSquare",
        "subMenu":[
              {
                 "id":"714af302-39a3-4193-bc72-5c3644a3e736",
@@ -143,7 +151,7 @@ let menu = [
                 "external":null,
                 "prefix":"/cloudbreak",
                 "parentId":"fc355e8b-d010-41d5-9b65-3e031cc421b0",
-                "icon":"fa fa-key",
+                "icon":"faKey",
                 "subMenu":[
  
                 ]
@@ -156,7 +164,7 @@ let menu = [
                 "external":null,
                 "prefix":"/cloudbreak",
                 "parentId":"fc355e8b-d010-41d5-9b65-3e031cc421b0",
-                "icon":"fa fa-database",
+                "icon":"faDatabase",
                 "subMenu":[
  
                 ]
@@ -169,7 +177,7 @@ let menu = [
                 "external":null,
                 "prefix":"/cloudbreak",
                 "parentId":"fc355e8b-d010-41d5-9b65-3e031cc421b0",
-                "icon":"fa fa-file-text-o",
+                "icon":"faFileTextO",
                 "subMenu":[
  
                 ]
@@ -182,7 +190,7 @@ let menu = [
                 "external":null,
                 "prefix":"/cloudbreak",
                 "parentId":"fc355e8b-d010-41d5-9b65-3e031cc421b0",
-                "icon":"fa fa-plug",
+                "icon":"faPlug",
                 "subMenu":[
  
                 ]
@@ -197,7 +205,7 @@ let menu = [
        "external":null,
        "prefix":"/cloudbreak",
        "parentId":null,
-       "icon":"fa fa-cogs",
+       "icon":"faCogs",
        "subMenu":[
  
        ]
@@ -210,7 +218,7 @@ let menu = [
        "external":true,
        "prefix":"/cloudbreak",
        "parentId":null,
-       "icon":"fa fa-book",
+       "icon":"faBook",
        "subMenu":[
  
        ]
@@ -223,7 +231,7 @@ let menu = [
        "external":true,
        "prefix":"/cloudbreak",
        "parentId":null,
-       "icon":"fa fa-question-circle",
+       "icon":"faQuestionCircle",
        "subMenu":[
  
        ]
@@ -236,7 +244,7 @@ let menu = [
        "external":null,
        "prefix":"/cloudbreak",
        "parentId":null,
-       "icon":"fas fa-sign-out-alt",
+       "icon":"faSignOutAlt",
        "subMenu":[
  
        ]

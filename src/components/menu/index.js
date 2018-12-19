@@ -16,6 +16,8 @@ import style from "./style.scss";
 import classNames from "classnames";
 import mockData from "./../../mock"
 import MenuItemWidget from "../menu-item";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDoubleRight, faAngleDoubleLeft } from "@fortawesome/free-solid-svg-icons";
 
 
 export default class App extends Component {
@@ -116,11 +118,11 @@ export default class App extends Component {
         <ul className={style.menu}>
           { this.getMenuItems(menu, 0) }
         </ul>
-        <div onClick={()=>this.toggleSideNav()}  className={style.expander}>
+        <div onClick={()=>this.toggleSideNav()} className={style.expander}>
           {
             this.state.collapsed ?
-            <i className="fa fa-angle-double-right"></i> :
-            <i className="fa fa-angle-double-left"></i>
+            <FontAwesomeIcon icon={faAngleDoubleRight}/> :
+            <FontAwesomeIcon icon={faAngleDoubleLeft}/>
           }
         </div>
       </div>
