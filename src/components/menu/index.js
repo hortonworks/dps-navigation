@@ -106,7 +106,7 @@ export default class App extends Component {
 
   render(props) {
     let menu = this.state.menu
-    return (
+    return menu && menu.length > 0 ? (
       <div className={classNames({[style.navContainer]: true, [style.collapsed]: this.state.collapsed})}>
         <div className={style.dpLogo}>
           <a href="">
@@ -126,7 +126,7 @@ export default class App extends Component {
           }
         </div>
       </div>
-    );
+    ) : '';
   }
 }
 
