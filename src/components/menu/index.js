@@ -11,7 +11,7 @@
  * under the License.
  */
 
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import style from "./style.scss";
 import classNames from "classnames";
 import mockData from "./../../mock"
@@ -61,7 +61,7 @@ export default class App extends Component {
     this.setState({activeMenuItem: menuItem});
   }
 
-  getMenuItems(menu, depth=0){
+  getMenuItems(menu, depth = 0){
     return menu.map(menuItem => {
       let currentDepth = menuItem.subMenu && menuItem.subMenu.length? depth+1 : depth;
       this.markMenusToOpen(menuItem, menuItem.subMenu);
@@ -89,7 +89,7 @@ export default class App extends Component {
   }
 
   componentWillMount() {
-    let promise = this.props.standalone ? this.getMenu() : fetch('/core/api/menu').then(result => result.json())
+    let promise = this.props.standalone ? this.getMenu() : this.makeAPIRequest('/core/api/menu')
     promise.then(menuJson => {
       this.setState({menu: menuJson})
     }).catch(error => {
@@ -100,13 +100,31 @@ export default class App extends Component {
     });
   }
 
+  makeAPIRequest(url) {
+    return new Promise((resolve, reject) => {
+      let xhr = (window).XMLHttpRequest ? new (window).XMLHttpRequest() : new (window).ActiveXObject('Microsoft.XMLHTTP');
+      xhr.open('GET', url);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status == 200) {
+            resolve(JSON.parse(xhr.responseText));
+          } else  {
+            reject(xhr.responseText);
+          }
+        }
+      };
+      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+      xhr.send();
+    });
+  }
+
   getMenu(){
     return new Promise((resolve, reject) => resolve(mockData))
   }
 
   render(props) {
     let menu = this.state.menu
-    return menu && menu.length > 0 ? (
+    return (
       <div className={classNames({[style.navContainer]: true, [style.collapsed]: this.state.collapsed})}>
         <div className={style.dpLogo}>
           <a href="">
@@ -115,18 +133,19 @@ export default class App extends Component {
             <div>DataPlane</div>
           </a>
         </div>
-        <ul className={style.menu}>
-          { this.getMenuItems(menu, 0) }
-        </ul>
-        <div onClick={()=>this.toggleSideNav()} className={style.expander}>
-          {
-            this.state.collapsed ?
-            <FontAwesomeIcon icon={faAngleDoubleRight}/> :
-            <FontAwesomeIcon icon={faAngleDoubleLeft}/>
-          }
-        </div>
+        { menu && menu.length > 0 ?
+          <ul className={style.menu}>
+            { this.getMenuItems(menu, 0) }
+          </ul> : '' }
+          <div onClick={()=>this.toggleSideNav()} className={style.expander}>
+            {
+              this.state.collapsed ?
+              <FontAwesomeIcon icon={faAngleDoubleRight}/> :
+              <FontAwesomeIcon icon={faAngleDoubleLeft}/>
+            }
+          </div>
       </div>
-    ) : '';
+    );
   }
 }
 
